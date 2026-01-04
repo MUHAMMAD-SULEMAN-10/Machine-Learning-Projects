@@ -1,0 +1,125 @@
+<!-- <html>
+<body>
+    <div class="login">
+       <h1>FWI Prediction</h1>
+   
+        
+       <form action="{{ url_for('predict_datapoint')}}" method="post">
+         <input type="text" name="Temperature" placeholder="Temperature" required="required" /><br>
+           <input type="text" name="RH" placeholder="RH" required="required" /><br>
+           <input type="text" name="Ws" placeholder="Ws" required="required" /><br>
+           <input type="text" name="Rain" placeholder="Rain" required="required" /><br>
+           <input type="text" name="FFMC" placeholder="FFMC" required="required" /><br>
+           <input type="text" name="DMC" placeholder="DMC" required="required" /><br>
+           <input type="text" name="ISI" placeholder="ISI" required="required" /><br>
+           <input type="text" name="Classes" placeholder="Classes" required="required" /><br>
+           <input type="text" name="Region" placeholder="Region" required="required" /><br>
+   
+           <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+       </form>
+    <h2>
+       THE FWI prediction is {{result}}
+    </h2>
+   <body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FWI Prediction</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1d2671, #c33764);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login {
+            background: #ffffff;
+            padding: 30px 40px;
+            width: 380px;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .login h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .login input {
+            width: 100%;
+            padding: 10px 12px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        .login input:focus {
+            outline: none;
+            border-color: #c33764;
+            box-shadow: 0 0 5px rgba(195, 55, 100, 0.4);
+        }
+
+        .login button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #c33764, #1d2671);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .login button:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        h2 {
+            margin-top: 20px;
+            text-align: center;
+            color: #1d2671;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="login">
+    <h1>🔥 FWI Prediction</h1>
+
+    <form action="{{ url_for('predict_datapoint') }}" method="post">
+        <input type="text" name="Temperature" placeholder="Temperature" required />
+        <input type="text" name="RH" placeholder="Relative Humidity (RH)" required />
+        <input type="text" name="Ws" placeholder="Wind Speed (Ws)" required />
+        <input type="text" name="Rain" placeholder="Rain" required />
+        <input type="text" name="FFMC" placeholder="FFMC" required />
+        <input type="text" name="DMC" placeholder="DMC" required />
+        <input type="text" name="ISI" placeholder="ISI" required />
+        <input type="text" name="Classes" placeholder="Classes" required />
+        <input type="text" name="Region" placeholder="Region" required />
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if result %}
+    <h2> FWI Prediction: {{ result }}</h2>
+    {% endif %}
+</div>
+
+</body>
+</html>
